@@ -62,18 +62,25 @@ Este repositório reúne:
 
 1. Abra o Arduino IDE
 2. Vá em `File > Preferences`
+
+![alt text](images/instalacao01.png)
+
 3. No campo **Additional Boards Manager URLs**, adicione:
 
 ```text
 https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json
 ```
+![alt text](images/instalacao02.png)
 
 4. Abra `Tools > Board > Boards Manager`
 5. Busque por `Digistump AVR Boards`
+![alt text](images/instalacao03.png)
+
 6. Instale o pacote
 
-> Após a instalação, selecione a placa `Digispark (Default - 16.5 MHz)`.
-
+> Após a instalação, selecione a placa `Digispark (Default - 16.5 MHz)`.<br>
+![alt text](images/instalacao05.png)<br>
+![alt text](images/instalacao04.png)
 ---
 
 ## ⚠️ Observação importante
@@ -338,3 +345,63 @@ Check:
 - Micronucleus installation
 - udev rule
 - `lsusb`
+
+#### Exemplo
+No terminal digite:
+```bash
+lsusb | grep -i digispark
+```
+
+Resposta esperada: 
+```bash
+Bus 001 Device 007: ID 16d0:0753 MCS Digistump DigiSpark
+```
+
+e para mais informações
+```bash
+lsusb -v -d 16d0:0753
+```
+
+Resposta esperada: 
+```bash
+Bus 001 Device 007: ID 16d0:0753 MCS Digistump DigiSpark
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               1.10
+  bDeviceClass          255 Vendor Specific Class
+  bDeviceSubClass         0 [unknown]
+  bDeviceProtocol         0 
+  bMaxPacketSize0         8
+  idVendor           0x16d0 MCS
+  idProduct          0x0753 Digistump DigiSpark
+  bcdDevice            1.06
+  iManufacturer           0 
+  iProduct                0 
+  iSerial                 0 
+  bNumConfigurations      1
+  Configuration Descriptor:
+    bLength                 9
+    bDescriptorType         2
+    wTotalLength       0x0012
+    bNumInterfaces          1
+    bConfigurationValue     1
+    iConfiguration          0 
+    bmAttributes         0x80
+      (Bus Powered)
+    MaxPower              100mA
+    Interface Descriptor:
+      bLength                 9
+      bDescriptorType         4
+      bInterfaceNumber        0
+      bAlternateSetting       0
+      bNumEndpoints           0
+      bInterfaceClass         0 [unknown]
+      bInterfaceSubClass      0 [unknown]
+      bInterfaceProtocol      0 
+      iInterface              0 
+```
+
+
+
+
