@@ -193,8 +193,9 @@ O fluxo de upload do Digispark é diferente do Arduino tradicional:
 2. Aguarde a mensagem:
 
 ```text
-Please plug in the device...
+Plug in device now... (will timeout in 60 seconds)
 ```
+![alt text](images/gravacao01.png)<br>
 
 3. Conecte o Digispark ao USB
 4. Aguarde o término do upload
@@ -257,14 +258,6 @@ void loop() {
 MIT License
 
 
-}
-
-void loop() {
-
-}
-```
-
----
 
 # Useful Commands
 
@@ -305,8 +298,8 @@ The Digispark:
 - [x] Linux setup
 - [x] Micronucleus
 - [x] OLED SSD1306
-- [ ] Temperature sensor
-- [ ] Humidity sensor
+- [x] Temperature sensor
+- [x] Humidity sensor
 - [ ] USB communication with Python
 - [ ] DigiKeyboard
 - [ ] DigiMouse
