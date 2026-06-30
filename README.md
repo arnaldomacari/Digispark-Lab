@@ -5,13 +5,22 @@
 ![Interface](https://img.shields.io/badge/Interface-I²C-yellow)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)<br>
+<!-- ![Last Commit](https://img.shields.io/github/last-commit/arnaldomacari/Digispark-Lab?style=for-the-badge)<br> -->
+<!-- ![GitHub stars](https://img.shields.io/github/stars/arnaldomacari/Digispark-Lab?style=for-the-badge) -->
+<!-- ![GitHub issues](https://img.shields.io/github/issues/arnaldomacari/Digispark-Lab?style=for-the-badge) -->
 
-![GitHub stars](https://img.shields.io/github/stars/arnaldomacari/Digispark-Lab?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/arnaldomacari/Digispark-Lab?style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/arnaldomacari/Digispark-Lab?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-brightgreen?style=for-the-badge)
+# 3 projetos 
+ 1. Temperatura e umidade no LCD
+ 2. Temperatura interna com interface Python
+ 3. Temperatura externa com conexão bluetooth com inteface Python
+
+
 
 > Ambiente completo de desenvolvimento Digispark em Linux Mint, com Micronucleus, regras udev, configuração do Arduino IDE e projetos exemplos.
+
+
+
+
 
 ## ✨ Sobre
 
@@ -21,7 +30,9 @@ Este repositório reúne:
 - Instalação e uso do bootloader `Micronucleus`
 - Regras `udev` para acesso USB sem permissão root
 - Passo a passo no Arduino IDE
-- Conexão e exemplos para displays `SSD1306`
+
+
+- **Projeto Digispark usando AHT10 para mostrar temperatura e umidade no SSD1306.**
 
 ## 🧩 Hardware suportado
 
@@ -130,7 +141,7 @@ Sem a regra, você pode ver erro:
 ```text
 usb_open(): Permission denied
 ```
-
+LCD
 Instale a regra com:
 
 ```bash
@@ -204,14 +215,59 @@ Plug in device now... (will timeout in 60 seconds)
 
 ---
 
-## 🖥️ Conexão do OLED SSD1306
+
+# 1. Temperatura e umidade no LCD
+
+## [Código: ATH10-LCD.ino](firmware/ATH10-LCD/ATH10-LCD.ino)
+
+## 🖥️ Conexão do OLED SSD1306 e AHT10
+
+| OLED | Digispark | AHT10 |
+|---|---|---|
+|  5V | VCC | VCC |
+| GND | GND | GND |
+| P0 | SDA | SDA |
+| P2 | SCL | SCL |
+
+
+## Esquema eletrônico
+![alt text](images/Digispark_LCD_AHT10.png)<br>
+
+## No protoboard
+![alt text](images/protboard01.png)
+![alt text](images/protboard02.png)<br>
+
+
+# 2. Temperatura e umidade no Python
+
+## [AHT10-UART-python.ino](firmware/AHT10-UART-python/AHT10-UART-python.ino)
+
+## 🖥️ Conexão do OLED SSD1306 
 
 | OLED | Digispark |
 |---|---|
-| VCC | 5V |
+|  5V | VCC |
 | GND | GND |
-| SDA | P0 |
-| SCL | P2 |
+| P0 | SDA |
+| P2 | SCL |
+
+
+## Esquema eletrônico
+![alt text](images/Digispark_LCD_python.png)
+
+
+
+
+Para o python
+pip install pyserial
+sudo usermod -a -G dialout $USER
+sudo chmod 666 /dev/ttyACM0
+
+
+
+
+
+
 
 Biblioteca sugerida:
 
