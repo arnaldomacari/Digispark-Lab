@@ -7,7 +7,7 @@ import os
 
 # Configurações
 PORTA = '/dev/ttyACM0'
-BAUD_RATE = 9600
+BAUD_RATE = 115200
 INTERVALO_LEITURA = 1  # segundos entre leituras
 INTERVALO_SALVAMENTO = 15 * 60  # 15 minutos em segundos
 TAMANHO_MEDIA_MOVIL = 10  # número de leituras para média móvel
@@ -117,7 +117,7 @@ def main():
         print("-" * 70)
 
         while True:
-            linha = ser.readline()#.decode("utf-8", errors="ignore").strip()
+            linha = ser.read(1);                   #readline().decode("utf-8", errors="ignore").strip()
             print(linha)
             time.sleep(0.5)
         
